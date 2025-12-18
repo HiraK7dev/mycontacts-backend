@@ -1,17 +1,16 @@
 import { Router } from "express";
+import {
+  currentUser,
+  loginUser,
+  registerUser,
+} from "../controllers/userController";
 
 const userRouter = Router();
 
-userRouter.post("/register", (req, res) => {
-    res.status(200).json({message: "Hello from register"});
-});
+userRouter.route("/register").post(registerUser);
 
-userRouter.post("/login", (req, res) => {
-    res.status(200).json({message: "Hello from login"});
-});
+userRouter.route("/login").post(loginUser);
 
-userRouter.get("/current", (req, res) => {
-    res.status(200).json({message: "Hello from current"});
-});
+userRouter.route("/current").get(currentUser);
 
-export default userRouter
+export default userRouter;

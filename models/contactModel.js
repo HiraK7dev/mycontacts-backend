@@ -14,6 +14,8 @@ const contactSchema = new Schema({
         unique: [true, "Phone number must be unique"],
         required: [true, "Please add phoneNumber"]
     }
+}, {
+    timestamps: true
 });
 
 export const contactModel = model("Contact", contactSchema);

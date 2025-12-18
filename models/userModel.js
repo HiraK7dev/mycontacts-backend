@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 
 const userSchema = new Schema({
     userName: {
@@ -9,5 +9,13 @@ const userSchema = new Schema({
         type: String,
         required: [true, "Email cannot be empty"],
         unique: [true, "Email must be unique"]
+    },
+    password: {
+        type: String,
+        required: [true, "Password cannot be empty"]
     }
-})
+}, {
+    timestamps: true
+});
+
+export const userModel = model("User", userSchema);
